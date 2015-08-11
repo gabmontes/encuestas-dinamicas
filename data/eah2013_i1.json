@@ -1,0 +1,90 @@
+{
+    "id": "I1",
+    "nombre": "Individual",
+    "grupos": [{
+        "id": "DI1",
+        "nombre": "Datos de Identificación",
+        "campos": [{
+            "id": "comuna",
+            "nombre": "Comuna",
+            "tipo": "texto"
+        }, {
+            "id": "calle",
+            "nombre": "Calle",
+            "tipo": "texto"
+        }, {
+            "id": "nro",
+            "nombre": "Nro",
+            "tipo": "num"
+        }, {
+            "id": "nombre",
+            "nombre": "Nombre",
+            "tipo": "texto"
+        }, {
+            "id": "edad",
+            "nombre": "Edad",
+            "tipo": "num"
+        }]
+    }, {
+        "id": "T1",
+        "mostrar": {
+            "campo": "DI1.edad",
+            "cond": ">=",
+            "ref": 10
+        },
+        "nombre": "Trabajo",
+        "campos": [{
+            "id": "trabaja",
+            "nombre": "¿La semana pasada trabajó por lo menos una hora?",
+            "tipo": "sel",
+            "valores": [{
+                "texto": "Si",
+                "val": 1
+            }, {
+                "texto": "No",
+                "val": 2
+            }]
+        }]
+    }, {
+        "id": "T3",
+        "mostrar": {
+            "campo": "T1.trabaja",
+            "cond": "=",
+            "ref": 2
+        },
+        "campos": [{
+            "id": "noTrabajaMotivo",
+            "nombre": "¿La semana pasada...",
+            "tipo": "sel",
+            "valores": [{
+                "texto": "no deseaba, no quería trabajar?",
+                "val": 1
+            }, {
+                "texto": "no podía trabajar por razones personales?",
+                "val": 2
+            }, {
+                "texto": "no tuvo pedidos / clientes?",
+                "val": 3
+            }]
+        }]
+    }, {
+        "id": "T7",
+        "mostrar": {
+            "campo": "T1.trabaja",
+            "cond": "=",
+            "ref": 1
+        },
+        "campos": [{
+            "id": "recibePago",
+            "nombre": "¿Recibe u obtiene algún pago por su trabajo, en dinero o en especie?",
+            "tipo": "sel",
+            "valores": [{
+                "texto": "Si",
+                "val": 1
+            }, {
+                "texto": "No",
+                "val": 2
+            }]
+        }]
+    }]
+}

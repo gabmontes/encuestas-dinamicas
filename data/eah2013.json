@@ -1,0 +1,9 @@
+[{
+    "id": "EAH2013",
+    "nombre": "Encuesta Anual de Hogares",
+    "periodo": 2013,
+    "formularios": [{
+        "id": "I1",
+        "nombre": "Individual1"
+    }]
+}]
