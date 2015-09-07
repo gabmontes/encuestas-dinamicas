@@ -3,6 +3,7 @@
         <h2>{{encuesta.nombre}} - {{encuesta.periodo}}</h2>
         <div ng-repeat="form in encuesta.formularios">
             <h3>{{form.id}} - {{form.nombre}}</h3>
+            <!-- La URL de cada encuesta se arma dinámicamente -->
             <a href="#/encuestas/{{encuesta.id}}/forms/{{form.id}}">Cargar formulario nuevo</a>
         </div>
     </div>

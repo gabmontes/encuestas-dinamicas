@@ -22,6 +22,7 @@
     app.controller("encuestasController", function ($http) {
         var vm = this;
 
+        // la lista de encuestas podría recuperarse de una base de datos
         $http.get("data/eah2013.json").then(function (response) {
             vm.lista = response.data;
         });
@@ -35,19 +36,22 @@
         var formUrl = "data/" + encId + "_" + formId + ".json";
         $http.get(formUrl).then(function (response) {
 
-            vm.def = response.data;
+            vm.opciones = response.data;
 
-            var watches = [];
-            vm.def.preguntas.filter(function (pregunta) {
+            var filtros = []; // contiene todos los filtros definidos
+            vm.opciones.preguntas.filter(function (pregunta) {
                 return pregunta.filtro;
             }).forEach(function (pregunta) {
-                watches.push(pregunta.filtro);
+                filtros.push(pregunta.filtro);
             });
 
+            // observa los cambios en las respuestas
             $scope.$watchCollection(function (scope) {
-                return vm.resp && watches.map(function (filtro) {
+                // evalúa dinámicamente cada filtro y devuelve un array con los
+                // resultados
+                return vm.respuestas && filtros.map(function (filtro) {
                     var split = filtro.campo.split(".");
-                    var val = vm.resp[split[0]] && vm.resp[split[0]][split[1]];
+                    var val = vm.respuestas[split[0]] && vm.respuestas[split[0]][split[1]];
                     if (!val) {
                         return null;
                     }
@@ -68,7 +72,10 @@
                 if (!newVal) {
                     return;
                 }
-                watches.forEach(function (filtro, i) {
+                // si hubo cambios en la evaluación de los filtros, hay que
+                // aplicar dichos cambios en el modelo para mostrar u ocultar
+                // las preguntas
+                filtros.forEach(function (filtro, i) {
                     filtro.mostrar = newVal[i];
                 });
             });
