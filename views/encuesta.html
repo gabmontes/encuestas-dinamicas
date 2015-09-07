@@ -7,9 +7,12 @@
             <span ng-switch="campo.tipo">
                 <input ng-switch-when="texto" type="text" ng-model="form.resp[pregunta.id][campo.id]"></input>
                 <input ng-switch-when="num" type="number" ng-model="form.resp[pregunta.id][campo.id]"></input>
-                <select ng-switch-when="sel" ng-model="form.resp[pregunta.id][campo.id]">
-                    <option ng-repeat="op in campo.valores" value="{{op.val}}">{{op.texto}}</option>
-                </select>
+                <div ng-switch-whe n="sel" ng-repeat="op in campo.valores">
+                    <label>
+                        <input type="radio" ng-model="form.resp[pregunta.id][campo.id]" value="{{op.val}}">
+                        {{op.texto}}
+                    </label>
+                </div>
             </span>
         </div>
     </div>
