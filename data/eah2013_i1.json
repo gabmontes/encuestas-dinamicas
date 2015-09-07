@@ -1,7 +1,7 @@
 {
     "id": "I1",
     "nombre": "Individual",
-    "grupos": [{
+    "preguntas": [{
         "id": "DI1",
         "nombre": "Datos de Identificación",
         "campos": [{
@@ -27,7 +27,7 @@
         }]
     }, {
         "id": "T1",
-        "mostrar": {
+        "filtro": {
             "campo": "DI1.edad",
             "cond": ">=",
             "ref": 10
@@ -47,7 +47,7 @@
         }]
     }, {
         "id": "T3",
-        "mostrar": {
+        "filtro": {
             "campo": "T1.trabaja",
             "cond": "=",
             "ref": 2
@@ -69,7 +69,7 @@
         }]
     }, {
         "id": "T7",
-        "mostrar": {
+        "filtro": {
             "campo": "T1.trabaja",
             "cond": "=",
             "ref": 1

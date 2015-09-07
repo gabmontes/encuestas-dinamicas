@@ -1,0 +1,18 @@
+<div>
+    <h3>{{form.def.id}} - {{form.def.nombre}}</h3>
+    <div ng-repeat="pregunta in form.def.preguntas" ng-show="!pregunta.filtro || pregunta.filtro.mostrar">
+        <h4 ng-show="pregunta.nombre">{{pregunta.nombre}}</h4>
+        <div ng-repeat="campo in pregunta.campos">
+            <label>{{campo.nombre}}</label>
+            <span ng-switch="campo.tipo">
+                <input ng-switch-when="texto" type="text" ng-model="form.resp[pregunta.id][campo.id]"></input>
+                <input ng-switch-when="num" type="number" ng-model="form.resp[pregunta.id][campo.id]"></input>
+                <select ng-switch-when="sel" ng-model="form.resp[pregunta.id][campo.id]">
+                    <option ng-repeat="op in campo.valores" value="{{op.val}}">{{op.texto}}</option>
+                </select>
+            </span>
+        </div>
+    </div>
+    <h4 ng-if="form.resp">Objeto de respuestas</h4>
+    <div ng-bind="form.toString(form.resp)"></div>
+</div>
