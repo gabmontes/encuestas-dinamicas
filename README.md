@@ -14,4 +14,4 @@ Apuntar un navegador a `http://localhost:8080`.
 
 ## Origen de la aplicación
 
-Esta aplicación fue desarrollada durante el curso brindado a la Dirección General de Estadísticas y Censos de la Cuidad de Buenos Aires y de ahí se tomaron los nombres de las encuestas y preguntas utilizadas como ejemplo en los archivos JSON de definición.
+Esta aplicación fue desarrollada para el curso brindado a la Dirección General de Estadísticas y Censos de la Cuidad de Buenos Aires y de ahí se tomaron los nombres de las encuestas y preguntas utilizadas como ejemplo en los archivos JSON de definición.
